@@ -1,12 +1,12 @@
 % load the image to filter f(x, y)
-raw_image = imread('2D_White_Box.png');
+raw_image = double(imread('2D_White_Box.png'));
 imagemax = max(max(raw_image));
 imagemin = min(min(raw_image));
 image = (raw_image - imagemin) / (imagemax - imagemin);
-[mrows, ncols] = size(box);
+[mrows, ncols] = size(raw_image);
 
 % display the image before filtering
-imtool(image);
+imtool(raw_image);
 
 % calculate and display Fourier transform of image
 f_image = fft2(ifftshift(image));
